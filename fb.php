@@ -29,6 +29,6 @@ $messages=$fb->get("/kkaalliance/conversations?fields=senders,messages{message}"
   exit;
 }
 
-print_r($messages);
+echo json_encode($messages->getDecodedBody());
 
 ?>
