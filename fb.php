@@ -10,10 +10,11 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.10',
   ]);
 
-$fb->setDefaultAccessToken($_SESSION['facebook_page_access_token'] );
-try {
 
-  $messages=$fb->get("/kkaalliance/conversations",'senders,messages{message}');
+try {
+$fb->setDefaultAccessToken($_SESSION['facebook_page_access_token'] );
+
+$messages=$fb->get("/kkaalliance/conversations",'senders,messages{message}');
 
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
