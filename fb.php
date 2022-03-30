@@ -1,5 +1,4 @@
 <?php
-header("content-type:application/json");
 session_start();
  ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -29,6 +28,6 @@ $messages=$fb->get("/kkaalliance/conversations?fields=senders,messages{message}"
   exit;
 }
 
-echo $messages->getDecodedBody();
+print_r($messages);
 
 ?>
