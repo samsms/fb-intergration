@@ -14,7 +14,7 @@ $fb = new Facebook\Facebook([
 
 try {
 
-$messages=$fb->get("/kkaalliance/conversations");
+$messages=$fb->get("/kkaalliance/conversations","senders,messages{message}");
 
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
