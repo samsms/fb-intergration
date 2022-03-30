@@ -31,7 +31,7 @@ $longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
   $fb->setDefaultAccessToken($_SESSION['facebook_access_token'] );
  $response = $fb->sendRequest('GET', 'kkaalliance', ['fields' => 'access_token'])
           ->getDecodedBody();
-print_r($response);
+echo($response['access_token']);
 //header("location:fb.php");
   // Now you can redirect to another page and use the
   // access token from $_SESSION['facebook_access_token']
