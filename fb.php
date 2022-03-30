@@ -8,13 +8,13 @@ $fb = new Facebook\Facebook([
   'app_id' => '467734418431236',
   'app_secret' => '79f8c3442e533b930a0ca9a9084d5019',
   'default_graph_version' => 'v2.10',
+  'default_access_token'=>$_SESSION['facebook_page_access_token']
   ]);
 
 
 try {
-$fb->setDefaultAccessToken($_SESSION['facebook_page_access_token'] );
-die($_SESSION['facebook_page_access_token'] );
-$messages=$fb->get("/kkaalliance/conversations",'senders,messages{message}');
+
+$messages=$fb->get("/kkaalliance/conversations");
 
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
