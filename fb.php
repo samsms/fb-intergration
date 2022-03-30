@@ -13,7 +13,7 @@ $fb = new Facebook\Facebook([
 
 try {
 $fb->setDefaultAccessToken($_SESSION['facebook_page_access_token'] );
-
+die($_SESSION['facebook_page_access_token'] );
 $messages=$fb->get("/kkaalliance/conversations",'senders,messages{message}');
 
 
