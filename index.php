@@ -60,6 +60,7 @@ if (isset($accessToken)) {
   try {
     $profile_request = $fb->get('/me?fields=name,first_name,last_name,email');
     $profile = $profile_request->getGraphNode()->asArray();
+    print_r($profile);
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
     // When Graph returns an error
     echo 'Graph returned an error: ' . $e->getMessage();
