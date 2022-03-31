@@ -14,11 +14,7 @@ $fb = new Facebook\Facebook([
 
 
 try {
-
-
 $messages=$fb->get("/kkaalliance/conversations?fields=senders,messages{message,created_time}");
-
-
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
   echo 'Graph returned an error: ' . $e->getMessage();

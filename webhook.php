@@ -5,8 +5,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
  require_once __DIR__ . '/vendor/autoload.php';
 $fb = new Facebook\Facebook([
-  'app_id' => '1282214068850839',
-  'app_secret' => '721e2b4acabd595d318ea28bf0c4e8f3',
+  'app_id' => '467734418431236',
+  'app_secret' => '79f8c3442e533b930a0ca9a9084d5019',
   'default_graph_version' => 'v2.10',
   ]);
 $helper = $fb->getRedirectLoginHelper();
@@ -29,7 +29,7 @@ if (isset($accessToken)) {
 $longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
   $_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
   $fb->setDefaultAccessToken($_SESSION['facebook_access_token'] );
- $response = $fb->sendRequest('GET', 'Techsavanna-Software-Institute-104464471214864', ['fields' => 'access_token'])
+ $response = $fb->sendRequest('GET', 'kkaalliance', ['fields' => 'access_token'])
           ->getDecodedBody();
   $_SESSION['facebook_page_access_token'] =$response['access_token'];
 //echo($response['access_token']);
