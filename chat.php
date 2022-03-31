@@ -245,13 +245,13 @@ $(function(){
     
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=subject,message_count,updated_time,unread_count,senders",function(response){
 response.data.forEach(function(res){
-    $unread=res.unread_count;
-    $count=res.message_count;
-    $time=res.updated_time;
-    $senders=res.senders.data[0];
-    $name=$senders.name;
-    $sender_id=senders.id;
-    $id=encodeURL(JSON.stringify($senders));
+    var unread=res.unread_count;
+    var count=res.message_count;
+    var time=res.updated_time;
+    var senders=res.senders.data[0];
+    var name=senders.name;
+    var sender_id=senders.id;
+    var id=encodeURL(JSON.stringify($senders));
     $("#convs").append(getConversationId($id,"https://",$name))
 })
 
