@@ -49,6 +49,7 @@ header("location:$loginUrl");
      response.data.forEach(function(res){
         res.messages.data.forEach(function(message){
            chats.push([++i,res.senders.data[0].name,message.message,message.created_time]);
+           return;
        });
    });
       display(chats);
