@@ -240,9 +240,7 @@ $('#action_menu_btn').click(function(){
     });
 
 
-$(function(){
-           
-    
+$(function(){  
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=subject,message_count,updated_time,unread_count,senders",function(response){
 response.data.forEach(function(res){
     var unread=res.unread_count;
@@ -261,10 +259,54 @@ response.data.forEach(function(res){
 
 
 });
+$(function(){
+    var threads=[];
+   var chats=[];
+  $.get("/read.php",function(response){
+    var i=0;
+     response.data.forEach(function(res){
+        res.messages.data.forEach(function(message){
+             $("#chats").append(displayChats(true,"2:00 am","hello",""));
+           chats.push([,res.senders.data[0].name,message.message,message.created_time]);
+       });
+   });
+   
+  });
 
+    $("#chats").append(displayChats(true,"2:00 am","hello",""));
+     $("#chats").append(displayChats(false,"2:00 am","hello","")); 
+     $("#chats").append(displayChats(true,"2:00 am","hello",""));
+
+});
+function displayChats(sent,time,message,url){
+    if(sent){
+         return `<div class="d-flex justify-content-end mb-4">
+                        <div class="msg_cotainer_send">
+                           ${message}
+                            <span class="msg_time_send">${time}</span>
+                        </div>
+                        <div class="img_cont_msg">
+                    <img src="${url}" class="rounded-circle user_img_msg">
+                        </div>
+                    </div>`;
+    }
+    else{
+        return`<div class="d-flex justify-content-start mb-4">
+                        <div class="img_cont_msg">
+                            <img src="${url}" class="rounded-circle user_img_msg">
+                        </div>
+                        <div class="msg_cotainer">
+                            ${message}
+                            <span class="msg_time">${time}</span>
+                        </div>
+                    </div>`
+    }
+   
+
+}
 function getConversationId(id,prof_url,name,count){
 
-   var html=` <li class="active" id="${id}">
+   var html=` <li class="" id="${id}">
                     <div class="d-flex bd-highlight">
                         <div class="img_cont">
                             <img src="${prof_url}" class="rounded-circle user_img">
@@ -339,70 +381,8 @@ function getConversationId(id,prof_url,name,count){
                         </ul>
                     </div>
                 </div>
-                <div class="card-body msg_card_body">
-                    <div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                            Hi, how are you samim?
-                            <span class="msg_time">8:40 AM, Today</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end mb-4">
-                        <div class="msg_cotainer_send">
-                            Hi Khalid i am good tnx how about you?
-                            <span class="msg_time_send">8:55 AM, Today</span>
-                        </div>
-                        <div class="img_cont_msg">
-                    <img src="" class="rounded-circle user_img_msg">
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                            I am good too, thank you for your chat template
-                            <span class="msg_time">9:00 AM, Today</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end mb-4">
-                        <div class="msg_cotainer_send">
-                            You are welcome
-                            <span class="msg_time_send">9:05 AM, Today</span>
-                        </div>
-                        <div class="img_cont_msg">
-                    <img src="" class="rounded-circle user_img_msg">
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                            I am looking for your next templates
-                            <span class="msg_time">9:07 AM, Today</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end mb-4">
-                        <div class="msg_cotainer_send">
-                            Ok, thank you have a good day
-                            <span class="msg_time_send">9:10 AM, Today</span>
-                        </div>
-                        <div class="img_cont_msg">
-                <img src="" class="rounded-circle user_img_msg">
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                            Bye, see you
-                            <span class="msg_time">9:12 AM, Today</span>
-                        </div>
-                    </div>
+                <div class="card-body msg_card_body" id="chats">
+                 
                 </div>
                 <div class="card-footer">
                     <div class="input-group">
