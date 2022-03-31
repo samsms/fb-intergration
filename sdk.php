@@ -60,6 +60,7 @@ function display(c){
 
    $('#chats').DataTable( {
         data: c,
+        destroy: true,
         columns: [
             {title:"id"},
             { title: "sender" },
