@@ -53,10 +53,11 @@ header("location:$loginUrl");
           
        });
    });
+       display(chats,filled);
       if (!filled) {
       	filled=true;
       }
-      display(chats,filled);
+    
 
   });
 
