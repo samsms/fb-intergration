@@ -54,7 +54,7 @@ $(function(){
 
 });
 function displayChats(id,time,message,url){
-    if(<?php echo getpageid($fb);?>==id){
+    if(<?php echo pageid($fb);?>==id){
          return `<div class="d-flex justify-content-end mb-4">
                         <div class="msg_cotainer_send">
                            ${message}
