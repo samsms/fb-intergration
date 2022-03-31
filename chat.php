@@ -16,11 +16,10 @@ $('#action_menu_btn').click(function(){
     $('.action_menu').toggle();
 });
     });
-$('.threads').on('click',function(){
+$($('.threads').on('click',function(){
   $(this).css('backgroundColor','red');
-  // OR: if you want to work with a class
  
-});
+}));
 
 $(function(){  
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=id,subject,message_count,updated_time,unread_count,senders",function(response){
@@ -50,7 +49,7 @@ function fetchChats(id){
     var i=0;
     $("#chats").html("");
      response.messages.data.forEach(function(res){
-       
+       $(res.from.id).
         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
         // chats.push([res.from.id,res.created_time,res.message,""]);
      
@@ -146,8 +145,8 @@ function getConversationId(id,prof_url,name,count){
                             <span class="online_icon"></span>
                         </div>
                         <div class="user_info">
-                            <span>Chat with Khalid</span>
-                            <p>1767 Messages</p>
+                            <span id="title">Chat with Khalid</span>
+                            <p id="number"></p>
                         </div>
                         <div class="video_cam">
                             <span><i class="fas fa-video"></i></span>
