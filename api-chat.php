@@ -18,6 +18,6 @@ $messages=$fb->get("/$page/conversations$path?fields=$field");
   exit;
 }
 
-echo json_encode($messages->getDecodedBody());
+echo json_encode("tt"=>$messages->getDecodedBody());
 
 ?>
