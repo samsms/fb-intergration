@@ -42,10 +42,10 @@ $(function(){
   
   $.get("/read.php?thread_id=t_1651332258557982",function(response){
     var i=0;
-     response.messagess.data.forEach(function(res){
+     response.messages.data.forEach(function(res){
        
-         $("#chats").append(displayChats(res.messages.from,res.created_time,response.message,""));
-           chats.push([res.messages.from.id,res.message,message.created_time]);
+         $("#chats").append(displayChats(res.message.from,res.created_time,response.message,""));
+           chats.push([res.message.from.id,res.message,message.created_time]);
      
    });
    
