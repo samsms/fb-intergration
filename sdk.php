@@ -66,6 +66,7 @@ die('');
  
 
   });
+}
 function display(c){
 
    $('#chats').DataTable( {
