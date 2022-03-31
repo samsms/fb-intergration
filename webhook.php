@@ -33,7 +33,7 @@ $longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
           ->getDecodedBody();
   $_SESSION['facebook_page_access_token'] =$response['access_token'];
 //echo($response['access_token']);
-header("location:sdk.php");
+header("location:index.php");
   // Now you can redirect to another page and use the
   // access token from $_SESSION['facebook_access_token']
 }?>

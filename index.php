@@ -1,4 +1,20 @@
-
+<?php
+session_start();
+if(!isset($_SESSION['facebook_page_access_token'])){
+ ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ require_once __DIR__ . '/vendor/autoload.php';
+$fb = new Facebook\Facebook([
+  'app_id' => '467734418431236',
+  'app_secret' => '79f8c3442e533b930a0ca9a9084d5019',
+  'default_graph_version' => 'v2.10',
+  ]);
+$helper = $fb->getRedirectLoginHelper();
+$loginUrl = $helper->getLoginUrl('https://sam-fb.herokuapp.com/webhook.php');
+header("location:$loginUrl"); 
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,47 +22,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <head>
- 
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
     var threads=[];
    var chats=[];
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '467734418431236',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v13.0'
-    });
-     FB.api(
-  '/kkaalliance/conversations',
-  'GET',
-  {fields: 'senders,messages{message}',
-            access_token: 'EAAGpZAufcHQQBAGJoHZBG7fnAZBJWyjUZCsRVr6OtSsF8YRLKqNqsY0VttrAlipeqZAeouUSayGeZCy1bnTld11UzekaTNTpinqIbIdJHGOgV7NrFDc7VDXnZCpdxvTiWBHByDgxlFZAFyLRK9ycdNZBLCtZBBBqOQNpuraZBig7FjcQUAn720NXKSVAWdtfkF6o5kXdzBEEXEIbQZDZD'},
-  function(response) {
+  $.get("/read.php",function(response){
     var i=0;
      response.data.forEach(function(res){
-       
-
         res.messages.data.forEach(function(message){
-          
-          //alert(JSON.stringify(message));
-           chats.push([++i,res.senders.data[0].name,message.message]);
+           chats.push([++i,res.senders.data[0].name,message.message,message.created_time]);
        });
-     
-
    });
       display(chats);
-  //document.getElementById("app").innerHTML=JSON.stringify(chats);
+  });
 
- 
-
-  })};
 function display(c){
 
    $('#chats').DataTable( {
@@ -55,17 +48,13 @@ function display(c){
             {title:"id"},
             { title: "sender" },
             { title: "message" },
+            {title: "time" },
             
         ]
     } );
   
 }
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-    
- <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <style type="text/css">
   th{
     background-color:#2196F3 ;
