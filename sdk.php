@@ -44,7 +44,7 @@ header("location:$loginUrl");
     var threads=[];
    var chats=[];
   
-  $.get("/fb.php",fuction(response){
+  $.get("/fb.php",function(response){
     var i=0;
     //alert(JSON.stringify(response));
      response.data.forEach(function(res){
