@@ -1,5 +1,6 @@
 <?php
 header("content-type:application/json");
+require('config.php');
 $path="";
 if(isset($_GET['path'])){
   $path="/".$_GET['path'];
