@@ -43,7 +43,7 @@ header("location:$loginUrl");
   <script>
     var threads=[];
    var chats=[];
-  
+  setInterval(function(){
   $.get("/fb.php",function(response){
     var i=0;
      response.data.forEach(function(res){
@@ -54,6 +54,7 @@ header("location:$loginUrl");
    });
       display(chats);
   });
+   },5000);
 
 function display(c){
 
