@@ -11,12 +11,16 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.10',
   'default_access_token'=>$_SESSION['facebook_page_access_token']
   ]);
+$path="";
+if(isset($_GET['path'])){
 
+  $path="/".$_GET['path'];
+}
 
 try {
 
 $field=$_GET["field"];
-$messages=$fb->get("/kkaalliance/conversations?fields=$field");
+$messages=$fb->get("/kkaalliance/conversations$path?fields=$field");
 
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
