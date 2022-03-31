@@ -23,7 +23,7 @@ function getConversationId(id,prof_url,name){
                         </div>
                     </li>`; 
                     return html;
-}}
+}})
 
     </script>
 </head>
