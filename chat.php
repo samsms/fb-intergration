@@ -37,7 +37,7 @@ response.data.forEach(function(res){
 
 });
 function fetchChats(id){
-    //$("#$"+id).css("background-color: rgba(0,0,0,0.3)");
+    $("#"+id).css("background-color: rgba(0,0,0,0.3)");
    // var threads=[];
    //var chats=[];
   
@@ -83,7 +83,7 @@ function displayChats(id,time,message,url){
 }
 function getConversationId(id,prof_url,name,count){
 
-   var html=` <li class="" id="${id}" onclick="fetchChats('$id')">
+   var html=` <li class="" id="${id}" onclick="fetchChats('${id}') style="cursor:pointer">
                     <div class="d-flex bd-highlight">
                         <div class="img_cont">
                             <img src="${prof_url}" class="rounded-circle user_img">
