@@ -21,9 +21,9 @@ header("location:$loginUrl");
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script>
-    var threads=[];
+var threads=[];
    var chats=[];
-  $.get("/read.php",function(response){
+  $.get("/read.php?thread_id=t_1651332258557982",function(response){
     var i=0;
      response.data.forEach(function(res){
         res.messages.data.forEach(function(message){

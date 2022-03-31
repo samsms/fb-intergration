@@ -38,13 +38,14 @@ response.data.forEach(function(res){
 $(function(){
     var threads=[];
    var chats=[];
-  $.get("/read.php",function(response){
+   messages{message,created_time}
+  $.get("/read.php?thread_id=t_1651332258557982",function(response){
     var i=0;
-     response.data.forEach(function(res){
-        res.messages.data.forEach(function(message){
-             $("#chats").append(displayChats(true,message.created_time,message.message,""));
-           chats.push([,res.senders.data[0].name,message.message,message.created_time]);
-       });
+     response.messagess.data.forEach(function(res){
+       
+         $("#chats").append(displayChats(res.messages.from,res.created_time,response.message,""));
+           chats.push([res.messages.from.id,res.message,message.created_time]);
+     
    });
    
   });
