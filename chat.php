@@ -244,8 +244,11 @@ $(function(){
             $("#convs").append(getConversationId("2","https://bootdey.com/img/Content/avatar/avatar1.png","ee"))
     
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=subject,message_count,updated_time,unread_count,senders",function(response){
+response.data.forEach(function(res){
+        alert(res.updated_time)
+})
 
-alert(JSON.stringify(response))
+//alert(JSON.stringify(response))
 
 })
 
