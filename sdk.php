@@ -46,6 +46,7 @@ header("location:$loginUrl");
   
   fetch("/fb.php").then(res=>res.json).then(response=>{
     var i=0;
+    alert(JSON.stringify(response));
      response.data.forEach(function(res){
        
 
