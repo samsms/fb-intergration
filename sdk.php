@@ -12,13 +12,7 @@ $fb = new Facebook\Facebook([
   'app_secret' => '79f8c3442e533b930a0ca9a9084d5019',
   'default_graph_version' => 'v2.10',
   ]);
-$response = file_get_contents(
-    "https://graph.facebook.com/oauth/access_token?" .
-    "client_id=" . $client_id .
-    "&redirect_uri=" . $redirect_url .
-    "&client_secret=" . $client_secret .
-    "&code=" . $code
-);
+
 $helper = $fb->getRedirectLoginHelper();
 //$permissions = ['email', 'user_likes']; // optional
 $loginUrl = $helper->getLoginUrl('https://sam-fb.herokuapp.com/webhook.php');
