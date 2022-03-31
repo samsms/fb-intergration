@@ -20,7 +20,7 @@ try {
 $data=[
   "recipient": "{id: $recipient}",
   "message": "{text:$message}"
-]
+];
 $messages=$fb->post("/kkaalliance/messages}",$data);
 
 
