@@ -19,7 +19,7 @@ $('#action_menu_btn').click(function(){
 });
 
 $('.threads').click(function(){
-    $(this).css("background-color", "yellow");
+    $(this).css("background-color",  rgba(0,0,0,0.3));
 });
     });
 
@@ -52,7 +52,7 @@ function fetchChats(id){
     var i=0;
     $("#chats").html("");
      response.messages.data.forEach(function(res){
-       $(res.from.id).
+  
         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
         // chats.push([res.from.id,res.created_time,res.message,""]);
      
