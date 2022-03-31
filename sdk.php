@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset(var)){
+if(!isset($_SESSION['facebook_page_access_token'])){
 
  ini_set('display_errors', 1);
 
