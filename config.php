@@ -1,8 +1,5 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 require_once __DIR__ . '/vendor/autoload.php';
 $page_id="467734418431236";
 $app_secret="79f8c3442e533b930a0ca9a9084d5019";

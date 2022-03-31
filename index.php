@@ -1,5 +1,7 @@
 <?php
-require('config.php');
+session_start();
+if(!isset($_SESSION['facebook_page_access_token'])){
+require("config.php");
 $helper = $fb->getRedirectLoginHelper();
 $loginUrl = $helper->getLoginUrl('https://sam-fb.herokuapp.com/webhook.php');
 header("location:$loginUrl"); 
