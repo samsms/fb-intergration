@@ -22,7 +22,7 @@ $data=[
   "message"=> "{text:$message}"
 ];
 
-$messages=$fb->post("/kkaalliance/messages}",$data);
+$messages=$fb->post("/kkaalliance/messages",$data);
 
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
