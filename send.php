@@ -1,19 +1,5 @@
 <?php
-header("content-type:application/json");
-session_start();
- ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-$recipient=$_POST['recipient'];
-$message=$_POST['message'];
- require_once __DIR__ . '/vendor/autoload.php';
-$fb = new Facebook\Facebook([
-  'app_id' => '467734418431236',
-  'app_secret' => '79f8c3442e533b930a0ca9a9084d5019',
-  'default_graph_version' => 'v2.10',
-  'default_access_token'=>$_SESSION['facebook_page_access_token']
-  ]);
-
+require('config.php');
 
 try {
 
@@ -22,8 +8,7 @@ $data=[
   "message"=> ["text"=>$message]
 ];
 
-$messages=$fb->post("/kkaalliance/messages",$data);
-
+$messages=$fb->post("/$page/messages",$data);
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
@@ -36,5 +21,3 @@ $messages=$fb->post("/kkaalliance/messages",$data);
 }
 
 echo json_encode($messages->getDecodedBody());
-
-?>

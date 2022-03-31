@@ -1,20 +1,9 @@
 <?php
 header("content-type:application/json");
-session_start();
- ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
- require_once __DIR__ . '/vendor/autoload.php';
-$fb = new Facebook\Facebook([
-  'app_id' => '467734418431236',
-  'app_secret' => '79f8c3442e533b930a0ca9a9084d5019',
-  'default_graph_version' => 'v2.10',
-  'default_access_token'=>$_SESSION['facebook_page_access_token']
-  ]);
-
-
+require('config.php');
 try {
-$messages=$fb->get("/kkaalliance/conversations?fields=senders,messages{message,created_time}");
+$messages=$fb->get("/$page/conversations?fields=senders,messages{message,created_time}");
+
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
   echo 'Graph returned an error: ' . $e->getMessage();
@@ -25,6 +14,6 @@ $messages=$fb->get("/kkaalliance/conversations?fields=senders,messages{message,c
   exit;
 }
 
-echo json_encode($messages->getDecodedBody());
+echo json_encode("messages"$messages->getDecodedBody(),"page_id"=>pageid($fb));
 
 ?>
