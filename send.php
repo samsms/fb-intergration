@@ -21,7 +21,7 @@ $data=[
   "recipient"=> "{id: $recipient}",
   "message"=> "{text:$message}"
 ];
-echo $data;
+
 $messages=$fb->post("/kkaalliance/messages}",$data);
 
 
