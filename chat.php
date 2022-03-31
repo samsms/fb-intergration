@@ -44,7 +44,7 @@ function fetchChats(id){
   $.get("/read.php?thread_id="+id,function(response){
     var i=0;
      response.messages.data.forEach(function(res){
-       $("#chats").innerHTML="";
+       $("#chats").html("");
         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
         // chats.push([res.from.id,res.created_time,res.message,""]);
      
