@@ -37,7 +37,7 @@ response.data.forEach(function(res){
 
 });
 function fetchChats(id){
-    $("#$"+id).css("background-color: rgba(0,0,0,0.3)");
+    //$("#$"+id).css("background-color: rgba(0,0,0,0.3)");
    // var threads=[];
    //var chats=[];
   
