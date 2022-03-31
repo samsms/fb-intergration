@@ -6,7 +6,7 @@ require('config.php');
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Snippet - Bootsnipp.com</title>
+<title>facebook- Bootsnipp.com</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -37,7 +37,7 @@ response.data.forEach(function(res){
 
 });
 function fetchChats(id){
-    //$("#"+id).css("background-color: rgba(0,0,0,0.3)");
+    $("#"+id).css("background-color: rgba(0,0,0,0.3)");
    // var threads=[];
    //var chats=[];
   
@@ -83,7 +83,7 @@ function displayChats(id,time,message,url){
 }
 function getConversationId(id,prof_url,name,count){
 
-   var html=` <li class="" id="${id}" onclick="fetchChats('${id}') style="cursor:pointer">
+   var html=` <li class="" id="${id}" onclick="fetchChats('${id}')" style="cursor:pointer">
                     <div class="d-flex bd-highlight">
                         <div class="img_cont">
                             <img src="${prof_url}" class="rounded-circle user_img">
