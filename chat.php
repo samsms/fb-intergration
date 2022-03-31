@@ -137,7 +137,7 @@ body,html{
         margin-left: 15px;
     }
     .user_info span{
-        font-size: 20px;
+        font-size: 16px;
         color: white;
     }
     .user_info p{
@@ -252,7 +252,7 @@ response.data.forEach(function(res){
     var name=senders.name;
     var sender_id=senders.id;
     var id=encodeURI(JSON.stringify(senders));
-    $("#convs").append(getConversationId(id,"https://bootdey.com/img/Content/avatar/avatar1.png",name))
+    $("#convs").append(getConversationId(id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
 })
 
 //alert(JSON.stringify(response))
