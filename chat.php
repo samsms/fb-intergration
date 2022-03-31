@@ -251,7 +251,7 @@ response.data.forEach(function(res){
     var senders=res.senders.data[0];
     var name=senders.name;
     var sender_id=senders.id;
-    var id=encodeURL(JSON.stringify($senders));
+    var id=encodeURI(JSON.stringify($senders));
     $("#convs").append(getConversationId($id,"https://",$name))
 })
 
