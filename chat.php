@@ -44,7 +44,7 @@ $(function(){
     var i=0;
      response.messages.data.forEach(function(res){
        
-         $("#chats").append(displayChats(res.message.from.id,res.created_time,res.message,""));
+         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
          //  chats.push([res.message.from.id,res.message,message.created_time]);
      
    });
