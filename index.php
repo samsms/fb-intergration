@@ -26,7 +26,7 @@ $('#action_menu_btn').click(function(){
 });
 
 $('.threads').click(function(){
-    $(this).css("background-color",  rgba(0,0,0,0.3));
+    $(this).css("background-color",  'rgba(0,0,0,0.3)');
 });
     });
 
