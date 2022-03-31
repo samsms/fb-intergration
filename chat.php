@@ -16,6 +16,11 @@ $('#action_menu_btn').click(function(){
     $('.action_menu').toggle();
 });
     });
+$('.threads').on('click',function(){
+  $(this).css('backgroundColor','red');
+  // OR: if you want to work with a class
+ 
+});
 
 $(function(){  
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=id,subject,message_count,updated_time,unread_count,senders",function(response){
@@ -43,8 +48,9 @@ function fetchChats(id){
   
   $.get("/read.php?thread_id="+id,function(response){
     var i=0;
+    $("#chats").html("");
      response.messages.data.forEach(function(res){
-       $("#chats").html("");
+       
         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
         // chats.push([res.from.id,res.created_time,res.message,""]);
      
@@ -83,7 +89,7 @@ function displayChats(id,time,message,url){
 }
 function getConversationId(id,prof_url,name,count){
 
-   var html=` <li class="" id="${id}" onclick="fetchChats('${id}')" style="cursor:pointer">
+   var html=` <li class="threads" id="${id}" onclick="fetchChats('${id}')" style="cursor:pointer">
                     <div class="d-flex bd-highlight">
                         <div class="img_cont">
                             <img src="${prof_url}" class="rounded-circle user_img">
