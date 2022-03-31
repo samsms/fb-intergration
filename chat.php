@@ -266,7 +266,7 @@ $(function(){
     var i=0;
      response.data.forEach(function(res){
         res.messages.data.forEach(function(message){
-             $("#chats").append(displayChats(true,"2:00 am","hello",""));
+             $("#chats").append(displayChats(true,message.created_time,message.message,""));
            chats.push([,res.senders.data[0].name,message.message,message.created_time]);
        });
    });
