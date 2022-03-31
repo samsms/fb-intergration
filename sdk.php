@@ -46,23 +46,12 @@ header("location:$loginUrl");
   
   $.get("/fb.php",function(response){
     var i=0;
-    //alert(JSON.stringify(response));
      response.data.forEach(function(res){
-       
-
         res.messages.data.forEach(function(message){
-          
-          //alert(JSON.stringify(message));
-           chats.push([++i,res.senders.data[0].name,message.message]);
+           chats.push([++i,res.senders.data[0].name,message.message,message.created_time]);
        });
-     
-
    });
       display(chats);
-  //document.getElementById("app").innerHTML=JSON.stringify(chats);
-
- 
-
   });
 
 function display(c){
@@ -73,6 +62,7 @@ function display(c){
             {title:"id"},
             { title: "sender" },
             { title: "message" },
+            {title: "time" },
             
         ]
     } );

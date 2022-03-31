@@ -1,5 +1,5 @@
 <?php
-header("content-type:application/json");
+//header("content-type:application/json");
 session_start();
  ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -16,7 +16,7 @@ $fb = new Facebook\Facebook([
 try {
 
 
-$messages=$fb->get("/kkaalliance/conversations?fields=senders,messages{message}");
+$messages=$fb->get("/kkaalliance/conversations?fields=senders,messages{message,created_time}");
 
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
