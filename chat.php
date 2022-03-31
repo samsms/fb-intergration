@@ -252,7 +252,7 @@ response.data.forEach(function(res){
     var name=senders.name;
     var sender_id=senders.id;
     var id=encodeURI(JSON.stringify(senders));
-    $("#convs").append(getConversationId($id,"https://",$name))
+    $("#convs").append(getConversationId(id,"https://bootdey.com/img/Content/avatar/avatar1.png",name))
 })
 
 //alert(JSON.stringify(response))
@@ -262,7 +262,7 @@ response.data.forEach(function(res){
 
 });
 
-function getConversationId(id,prof_url,name,$count){
+function getConversationId(id,prof_url,name,count){
 
    var html=` <li class="active" id="${id}">
                     <div class="d-flex bd-highlight">
