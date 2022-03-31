@@ -44,9 +44,9 @@ header("location:$loginUrl");
     var threads=[];
    var chats=[];
   
-  fetch("/fb.php").then(res=>res.json).then(response=>{
+  fetch("/fb.php").then((res)=>{return res.json}).then((response)=>{
     var i=0;
-    alert(JSON.stringify(response));
+    //alert(JSON.stringify(response));
      response.data.forEach(function(res){
        
 
