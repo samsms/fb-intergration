@@ -40,12 +40,12 @@ $(function(){
     var threads=[];
    var chats=[];
   
-  $.get("/read.php?thread_id=t_1651332258557982",function(response){
+  $.get("/read.php?thread_id=t_336336225129767",function(response){
     var i=0;
      response.messages.data.forEach(function(res){
        
-         $("#chats").append(displayChats(res.message.from,res.created_time,response.message,""));
-           chats.push([res.message.from.id,res.message,message.created_time]);
+         $("#chats").append(displayChats(res.message.from.id,res.created_time,res.message,""));
+         //  chats.push([res.message.from.id,res.message,message.created_time]);
      
    });
    
