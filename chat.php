@@ -18,16 +18,16 @@ $('#action_menu_btn').click(function(){
     });
 
 $(function(){  
-$.get("https://sam-fb.herokuapp.com/api-chat.php?field=subject,message_count,updated_time,unread_count,senders",function(response){
+$.get("https://sam-fb.herokuapp.com/api-chat.php?field=id,subject,message_count,updated_time,unread_count,senders",function(response){
 response.data.forEach(function(res){
     var unread=res.unread_count;
+    var thread_id=res.id;
     var count=res.message_count;
     var time=res.updated_time;
     var senders=res.senders.data[0];
     var name=senders.name;
     var sender_id=senders.id;
-    var id=encodeURI(JSON.stringify(senders));
-    $("#convs").append(getConversationId(id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
+    $("#convs").append(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
 })
 
 //alert(JSON.stringify(response))
@@ -36,16 +36,17 @@ response.data.forEach(function(res){
 
 
 });
-$(function(){
-    var threads=[];
-   var chats=[];
+function fetchChats(id){
+    $("#$"+id).css("background-color: rgba(0,0,0,0.3)");
+   // var threads=[];
+   //var chats=[];
   
-  $.get("/read.php?thread_id=t_336336225129767",function(response){
+  $.get("/read.php?thread_id="+id,function(response){
     var i=0;
      response.messages.data.forEach(function(res){
-       
-         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
-         //  chats.push([res.message.from.id,res.message,message.created_time]);
+       $("#chats").innerHTML="";
+        $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
+        // chats.push([res.from.id,res.created_time,res.message,""]);
      
    });
    
@@ -53,7 +54,7 @@ $(function(){
 
    
 
-});
+};
 function displayChats(id,time,message,url){
     if(<?php echo $fb->get("/$page")->getDecodedBody()['id'];?>==id){
          return `<div class="d-flex justify-content-end mb-4">
@@ -82,7 +83,7 @@ function displayChats(id,time,message,url){
 }
 function getConversationId(id,prof_url,name,count){
 
-   var html=` <li class="" id="${id}">
+   var html=` <li class="" id="${id}" onclick="fetchChats('$id')">
                     <div class="d-flex bd-highlight">
                         <div class="img_cont">
                             <img src="${prof_url}" class="rounded-circle user_img">
