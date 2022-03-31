@@ -1,9 +1,9 @@
 <?php
 header("content-type:application/json");
 require('config.php');
-if(isset($_GET['thread_id'])){
+if(!isset($_GET['thread_id'])){
    $id= $_GET['thread_id'];
-   return;
+ die("error");
 }
 try {
 
