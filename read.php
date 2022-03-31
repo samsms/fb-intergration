@@ -2,7 +2,8 @@
 header("content-type:application/json");
 require('config.php');
 try {
-$messages=$fb->get("/$page/conversations?fields=senders,messages{message,created_time}");
+ $id= $_GET['thread_id']
+$messages=$fb->get("$id?fields=messages{from,message}");
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error

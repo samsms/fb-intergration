@@ -1,13 +1,12 @@
+<<?php 
+require('config.php') ?>
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Snippet - Bootsnipp.com</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-<style> 
-</style>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -16,7 +15,6 @@ $('#action_menu_btn').click(function(){
     $('.action_menu').toggle();
 });
     });
-
 
 $(function(){  
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=subject,message_count,updated_time,unread_count,senders",function(response){
@@ -51,13 +49,11 @@ $(function(){
    
   });
 
-    $("#chats").append(displayChats(true,"2:00 am","hello",""));
-     $("#chats").append(displayChats(false,"2:00 am","hello","")); 
-     $("#chats").append(displayChats(true,"2:00 am","hello",""));
+   
 
 });
-function displayChats(sent,time,message,url){
-    if(sent){
+function displayChats(id,time,message,url){
+    if(<?php getpageid($fb);?>==id){
          return `<div class="d-flex justify-content-end mb-4">
                         <div class="msg_cotainer_send">
                            ${message}
