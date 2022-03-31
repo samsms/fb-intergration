@@ -1,8 +1,12 @@
 <?php
 header("content-type:application/json");
 require('config.php');
+if(isset($_GET['thread_id'])){
+   $id= $_GET['thread_id'];
+   return;
+}
 try {
- $id= $_GET['thread_id']
+
 $messages=$fb->get("$id?fields=messages{from,message}");
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
