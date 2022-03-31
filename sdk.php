@@ -16,8 +16,8 @@ $fb = new Facebook\Facebook([
 $helper = $fb->getRedirectLoginHelper();
 //$permissions = ['email', 'user_likes']; // optional
 $loginUrl = $helper->getLoginUrl('https://sam-fb.herokuapp.com/webhook.php');
-echo '<a href="' . $loginUrl . '">Login to continue! '.$loginUrl.'</a>';
-die('');
+header("location:$loginUrl"); 
+
 }
 
 
