@@ -54,7 +54,7 @@ header("location:$loginUrl");
    });
       display(chats);
   });
-   },5000);
+   },10000);
 
 function display(c){
 
