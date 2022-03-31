@@ -11,15 +11,18 @@ require('config.php');
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript"> $(document).ready(function(){
+<script type="text/javascript"> 
+
+$(document).ready(function(){
 $('#action_menu_btn').click(function(){
     $('.action_menu').toggle();
 });
+
+$('.threads').click(function(){
+    $(this).css("background-color", "yellow");
+});
     });
-$($('.threads').on('click',function(){
-  $(this).css('backgroundColor','red');
- 
-}));
+
 
 $(function(){  
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=id,subject,message_count,updated_time,unread_count,senders",function(response){
@@ -41,7 +44,7 @@ response.data.forEach(function(res){
 
 });
 function fetchChats(id){
-    $("#"+id).css("background-color: rgba(0,0,0,0.3)");
+  //  $("#"+id).css("background-color: rgba(0,0,0,0.3)");
    // var threads=[];
    //var chats=[];
   
