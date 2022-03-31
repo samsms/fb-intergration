@@ -43,13 +43,7 @@ header("location:$loginUrl");
   <script>
     var threads=[];
    var chats=[];
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '467734418431236',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v13.0'
-    });
+  
   fetch("/fb.php").then(res=>res.json).then(response=>{
     var i=0;
      response.data.forEach(function(res){
@@ -69,7 +63,7 @@ header("location:$loginUrl");
  
 
   });
-}
+
 function display(c){
 
    $('#chats').DataTable( {
