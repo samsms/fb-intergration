@@ -18,8 +18,8 @@ $fb = new Facebook\Facebook([
 try {
 
 $data=[
-  "recipient"=> "{id: $recipient}",
-  "message"=> "{text:$message}"
+  "recipient"=> ["id"=> $recipient],
+  "message"=> ["text"=>$message]
 ];
 
 $messages=$fb->post("/kkaalliance/messages",$data);
