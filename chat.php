@@ -241,11 +241,18 @@ $('#action_menu_btn').click(function(){
 
 
 $(function(){
-            $("#convs").append(getConversationId("2","https://bootdey.com/img/Content/avatar/avatar1.png","ee"))
+           
     
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=subject,message_count,updated_time,unread_count,senders",function(response){
 response.data.forEach(function(res){
-        alert(res.updated_time)
+    $unread=res.unread_count;
+    $count=res.message_count;
+    $time=res.updated_time;
+    $senders=res.senders.data[0];
+    $name=$senders.name;
+    $sender_id=senders.id;
+    $id=encodeURL(JSON.stringify($senders));
+    $("#convs").append(getConversationId($id,"https://",$name))
 })
 
 //alert(JSON.stringify(response))
@@ -255,7 +262,7 @@ response.data.forEach(function(res){
 
 });
 
-function getConversationId(id,prof_url,name){
+function getConversationId(id,prof_url,name,$count){
 
    var html=` <li class="active" id="${id}">
                     <div class="d-flex bd-highlight">
@@ -265,7 +272,7 @@ function getConversationId(id,prof_url,name){
                         </div>
                         <div class="user_info">
                             <span>${name}</span>
-                            <p>${name} is online</p>
+                            <p>${count} messages</p>
                         </div>
                     </div>
                 </li>`; 
