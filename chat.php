@@ -270,7 +270,7 @@ function getConversationId(id,prof_url,name,count){
                             <img src="${prof_url}" class="rounded-circle user_img">
                             <span class="online_icon"></span>
                         </div>
-                        <div class="user_info">
+                        <div class="user_info" style="overflow: hidden;white-space: nowrap;">
                             <span>${name}</span>
                             <p>${count} messages</p>
                         </div>
