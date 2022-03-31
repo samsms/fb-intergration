@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
-$.get("https://sam-fb.herokuapp.com/api-chat.php?field=subject,message_count,updated_time,unread_count,senders",function(){
 
 $("#convs").append(getConversationId("2","ee","ee"))
 function getConversationId(id,prof_url,name){
@@ -23,7 +22,7 @@ function getConversationId(id,prof_url,name){
                         </div>
                     </li>`; 
                     return html;
-}})
+}
 
     </script>
 </head>
