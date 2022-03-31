@@ -9,6 +9,23 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+$.get("https://sam-fb.herokuapp.com/api-chat.php?field=subject,message_count,updated_time,unread_count,senders",function(){
+
+$("#convs").append(getConversationId("2","ee","ee"))
+function getConversationId(id,prof_url,name){
+
+   var html=`<li class="clearfix" id='${id}'>
+                        <img src="${prof_url}" alt="avatar">
+                        <div class="about">
+                            <div class="name">${name}</div>
+                            <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>                                            
+                        </div>
+                    </li>`; 
+                    return html;
+}
+
+    </script>
 </head>
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -24,7 +41,7 @@
                     </div>
                     <input type="text" class="form-control" placeholder="Search...">
                 </div>
-                <ul class="list-unstyled chat-list mt-2 mb-0">
+                <ul class="list-unstyled chat-list mt-2 mb-0" id="convs">
                     <li class="clearfix">
                         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
                         <div class="about">
