@@ -1,5 +1,6 @@
 <?php 
-require('config.php'); ?>
+require('config.php');
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

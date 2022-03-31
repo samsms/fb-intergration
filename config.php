@@ -11,7 +11,7 @@ $fb = new Facebook\Facebook([
   'default_access_token'=>$_SESSION['facebook_page_access_token']
   ]);
 function pageid($fb){
-    return $fb->get("/$page")->getDecodedBody();
+    return $fb->get("/$page")->getDecodedBody()->id;
 }
 
 ?>
