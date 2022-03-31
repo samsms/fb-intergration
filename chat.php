@@ -39,7 +39,7 @@ response.data.forEach(function(res){
 $(function(){
     var threads=[];
    var chats=[];
-   messages{message,created_time}
+  
   $.get("/read.php?thread_id=t_1651332258557982",function(response){
     var i=0;
      response.messagess.data.forEach(function(res){
