@@ -43,21 +43,29 @@ header("location:$loginUrl");
   <script>
     var threads=[];
    var chats=[];
+   var filled=false;
   setInterval(function(){
   $.get("/fb.php",function(response){
     var i=0;
      response.data.forEach(function(res){
         res.messages.data.forEach(function(message){
            chats.push([++i,res.senders.data[0].name,message.message,message.created_time]);
-           return;
+          
        });
    });
-      display(chats);
+      if (!filled) {
+      	filled=true;
+      }
+      display(chats,filled);
+
   });
-   },10000);
 
-function display(c){
 
+   },5000);
+
+function display(c,filled){
+
+if (filled) {$("$chats").DataTable().destroy();}
    $('#chats').DataTable( {
         data: c,
         destroy: true,
