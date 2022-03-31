@@ -14,6 +14,6 @@ $messages=$fb->get("/$page/conversations?fields=senders,messages{message,created
   exit;
 }
 
-echo json_encode( array("messages"=>$messages->getDecodedBody(),"page_id"=>pageid($fb)));
+echo json_encode( new array("messages"=>$messages->getDecodedBody(),"page_id"=>pageid($fb)));
 
 ?>
