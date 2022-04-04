@@ -26,11 +26,12 @@ $(document).ready(function(){
     });
 
     $('.threads').click(function(){
-        
+        alert("hello")
+        $(this).css("background-color",  'rgba(0,0,0,0.3)');
     });
    $("#send_btn").click(function(){
         alert("hello")
-        $(this).css("background-color",  'rgba(0,0,0,0.3)');
+
    })
 
  });
