@@ -103,8 +103,8 @@ function displayChats(id,time,message,url){
 }
 function getConversationId(id,prof_url,name,count){
 
-   var html=` <li class="threads" id="${id}"  style="cursor:pointer">
-                    <div class="d-flex bd-highlight">
+   var html=` <li  style="cursor:pointer">
+                    <div class="d-flex bd-highlight" class="threads" id="${id}" >
                         <div class="img_cont">
                             <img src="${prof_url}" class="rounded-circle user_img">
                             <span class="online_icon"></span>
