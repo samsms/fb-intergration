@@ -20,14 +20,13 @@ require("config.php");
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript"> 
 
+
 $(document).ready(function(){
     $('#action_menu_btn').click(function(){
         $('.action_menu').toggle();
     });
 
-   $(".threads").on('click',function(){
-   $(this).css("background-color",  'rgba(0,0,0,0.3)');
-})
+ 
    $("#send_btn").click(function(){
         alert("hello")
 
@@ -35,7 +34,10 @@ $(document).ready(function(){
 
  });
 
-
+$(document).on('click','.threads',function(){
+    $('.threads').css('background-color','')
+   $(this).css("background-color",  'rgba(0,0,0,0.3)');
+})
 $(function(){  
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=id,subject,message_count,updated_time,unread_count,senders",function(response){
 response.data.forEach(function(res){
