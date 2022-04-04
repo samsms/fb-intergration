@@ -25,7 +25,7 @@ $(document).ready(function(){
         $('.action_menu').toggle();
     });
 
-   $(".threads").click(function(){
+   $(".threads").on('click',function(){
    $(this).css("background-color",  'rgba(0,0,0,0.3)');
 })
    $("#send_btn").click(function(){
