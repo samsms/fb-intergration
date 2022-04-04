@@ -16,30 +16,46 @@ require('config.php');
 $(document).ready(function(){
 $('#action_menu_btn').click(function(){
     $('.action_menu').toggle();
-});
+    $('.threads').click(function(){
+    $("threads").css("background-color",  'rgba(0,0,0,0.3)')
+   
+ 
+})})
 
-$('.threads').click(function(){
-    $(this).css("background-color",  rgba(0,0,0,0.3));
-});
-    });
+ $("#send_btn").click(function(){
+    alert("hello")
+ })
+})
+
+
 
 
 $(function(){  
 $.get("https://sam-fb.herokuapp.com/api-chat.php?field=id,subject,message_count,updated_time,unread_count,senders",function(response){
-response.data.forEach(function(res){
-    var unread=res.unread_count;
-    var thread_id=res.id;
-    var count=res.message_count;
-    var time=res.updated_time;
-    var senders=res.senders.data[0];
-    var name=senders.name;
-    var sender_id=senders.id;
-    $("#convs").append(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
-})
+        response.data.forEach(function(res){
+            var unread=res.unread_count;
+            var thread_id=res.id;
+            var count=res.message_count;
+            var time=res.updated_time;
+            var senders=res.senders.data[0];
+            var name=senders.name;
+            response.data.forEach(function(res){
+                var unread=res.unread_count;
+                var thread_id=res.id;
+                var count=res.message_count;
+                var time=res.updated_time;
+                var senders=res.senders.data[0];
+                var name=senders.name;
+                var sender_id=senders.id;
+                $("#convs").append(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
+            })
+             var sender_id=senders.id;
+                    $("#convs").append(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
+                })
 
 //alert(JSON.stringify(response))
 
-})
+            })
 
 
 });
@@ -174,8 +190,8 @@ function getConversationId(id,prof_url,name,count){
                         <div class="input-group-append">
                             <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
                         </div>
-                        <textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
-                        <div class="input-group-append">
+                        <textarea id="txtmsg" name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                        <div class="input-group-append" id="send_btn">
                             <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
                         </div>
                     </div>

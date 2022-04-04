@@ -21,14 +21,18 @@ require("config.php");
 <script type="text/javascript"> 
 
 $(document).ready(function(){
-$('#action_menu_btn').click(function(){
-    $('.action_menu').toggle();
-});
-
-$('.threads').click(function(){
-    $(this).css("background-color",  'rgba(0,0,0,0.3)');
-});
+    $('#action_menu_btn').click(function(){
+        $('.action_menu').toggle();
     });
+
+    $('.threads').click(function(){
+        $(this).css("background-color",  'rgba(0,0,0,0.3)');
+    });
+   $("#send_btn").click(function(){
+        alert("hello")
+   })
+
+ });
 
 
 $(function(){  
