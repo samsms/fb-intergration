@@ -186,7 +186,7 @@ function getConversationId(id,prof_url,name,count){
                             <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
                         </div>
                         <textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
-                        <div class="input-group-append">
+                        <div class="input-group-append" id="send_btn">
                             <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
                         </div>
                     </div>
