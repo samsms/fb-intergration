@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -13,9 +13,6 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.10',
   'default_access_token'=>$_SESSION['facebook_page_access_token']
   ]);
- $response = $fb->sendRequest('GET', 'kkaalliance', ['fields' => 'access_token'])
-          ->getDecodedBody();
-  $_SESSION['facebook_page_access_token'] =$response['access_token'];
 function pageid($fb){
     return $fb->get("/$page")->getDecodedBody();
 }
