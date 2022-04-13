@@ -66,7 +66,7 @@ function fetchChats(id){
     var i=0;
     $("#chats").html("");
     //var from=response.messages.data[0].from[0].id;
-    //var name=response.messages.data[0].from[0].name;
+    var name=response.messages.data[0].from[0].name;
     //$("#title").html("Chat with "+name);
     //$("#number").html(from);
      response.messages.data.forEach(function(res){
