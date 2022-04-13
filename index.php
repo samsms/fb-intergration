@@ -30,7 +30,7 @@ $(document).ready(function(){
         
          var number=$("#number").text();
         var message=$("#msg").val();
-        $.post("ttps://sam-fb.herokuapp.com/send.php",{
+        $.post("https://sam-fb.herokuapp.com/send.php",{
             recipient:number,
             msg:message
         });
