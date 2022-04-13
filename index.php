@@ -71,6 +71,24 @@ response.data.forEach(function(res){
 
 
 });
+function getchats(){
+$.get("https://sam-fb.herokuapp.com/api-chat.php?field=id,subject,message_count,updated_time,unread_count,senders",function(response){
+response.data.forEach(function(res){
+    var unread=res.unread_count;
+    var thread_id=res.id;
+    var count=res.message_count;
+    var time=res.updated_time;
+    var senders=res.senders.data[0];
+    var name=senders.name;
+    var sender_id=senders.id;
+    $("#convs").append(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
+})
+
+//alert(JSON.stringify(response))
+
+})
+}
+
 function fetchChats(id){
 window.id=id;
   //  $("#"+id).css("background-color: rgba(0,0,0,0.3)");
@@ -147,6 +165,10 @@ function getConversationId(id,prof_url,name,count){
                 </li>`; 
                     return html;
 }
+setInterval(function(){ 
+   fetchChats(window.id); 
+   getchats();
+}, 1000);
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script></head>
 <body>
