@@ -70,9 +70,7 @@ function fetchChats(id){
   $.get("/read.php?thread_id="+id,function(response){
     var i=0;
     $("#chats").html("");
-  
-     response.messages.data.forEach(function(res){
-        if(response.messages.data[0].from.id!=<?php echo $fb->get("/$page")->getDecodedBody()['id'];?>){
+   if(response.messages.data[0].from.id!=<?php echo $fb->get("/$page")->getDecodedBody()['id'];?>){
             var from=response.messages.data[0].from.id;
             var name=response.messages.data[0].from.name;
             $("#title").html("Chat with "+name);
@@ -83,6 +81,8 @@ function fetchChats(id){
             $("#title").html("Chat with "+name);
             $("#number").html(from);
         }
+     response.messages.data.forEach(function(res){
+       
         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
         // chats.push([res.from.id,res.created_time,res.message,""]);
      
