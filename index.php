@@ -54,7 +54,7 @@ response.data.forEach(function(res){
     var senders=res.senders.data[0];
     var name=senders.name;
     var sender_id=senders.id;
-    $("#convs").append(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
+    $("#convs").prepend(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
 })
 
 //alert(JSON.stringify(response))
@@ -218,5 +218,6 @@ function getConversationId(id,prof_url,name,count){
         </div>
     </div>
 </div>
+
 </body>
 </html>
