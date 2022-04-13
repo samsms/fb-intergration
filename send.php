@@ -10,9 +10,9 @@ $data=[
   "message"=> ["text"=>$message]
 ];
 
-die(json_encode($page));
-
-$messages=$fb->post("/$page/messages",$data);
+//die(json_encode($page));
+$id=$fb->get("/$page")->getDecodedBody()['id'];
+$messages=$fb->post("/$id/messages",$data);
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
