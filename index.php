@@ -20,7 +20,6 @@ require("config.php");
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript"> 
 
-
 $(document).ready(function(){
     $('#action_menu_btn').click(function(){
         $('.action_menu').toggle();
@@ -58,6 +57,7 @@ response.data.forEach(function(res){
 
 });
 function fetchChats(id){
+
   //  $("#"+id).css("background-color: rgba(0,0,0,0.3)");
    // var threads=[];
    //var chats=[];
@@ -65,8 +65,12 @@ function fetchChats(id){
   $.get("/read.php?thread_id="+id,function(response){
     var i=0;
     $("#chats").html("");
+    var from=response.from[0].id;
+    var name=response.from[0].name;
+    $("#title").html("Chat with "+name);
+    $("#number").html(from);
      response.messages.data.forEach(function(res){
-  
+        
         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
         // chats.push([res.from.id,res.created_time,res.message,""]);
      
@@ -78,6 +82,7 @@ function fetchChats(id){
 
 };
 function displayChats(id,time,message,url){
+
     if(<?php echo $fb->get("/$page")->getDecodedBody()['id'];?>==id){
          return `<div class="d-flex justify-content-end mb-4">
                         <div class="msg_cotainer_send">
