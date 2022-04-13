@@ -115,6 +115,7 @@ window.id=id;
         // chats.push([res.from.id,res.created_time,res.message,""]);
      
    });
+     scrollTo( $('#chats').position().bottom );
    
   });
 
@@ -167,6 +168,7 @@ function getConversationId(id,prof_url,name,count){
 }
 setInterval(function(){ 
    fetchChats(window.id); 
+
    getchats();
 }, 1000);
 </script>
