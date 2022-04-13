@@ -30,15 +30,33 @@ $(document).ready(function(){
         
          var number=$("#number").text();
         var message=$("#msg").val();
-        $.post("https://sam-fb.herokuapp.com/send.php",{
+        $.post("https://sam-fb.herokuapp.com/send.phpthread_id="+window.id,{
             recipient:number,
             msg:message
         },function(res){
-            fetchChats(window.id);
+            //fetchChats(window.id);
+                            var i=0;
+                $("#chats").html("");
+               if(response.messages.data[0].from.id!=<?php echo $fb->get("/$page")->getDecodedBody()['id'];?>){
+                        var from=response.messages.data[0].from.id;
+                        var name=response.messages.data[0].from.name;
+                        $("#title").html("Chat with "+name);
+                        $("#number").html(from);
+                    }else{
+                        var to=response.messages.data[0].to.data[0].id;
+                        var name=response.messages.data[0].to.data[0].name;
+                        $("#title").html("Chat with "+name);
+                        $("#number").html(to);
+                    }
+                 response.messages.data.forEach(function(res){
+                   
+                    $("#chats").prepend(displayChats(res.from.id,res.created_time,res.message,""));
+                    // chats.push([res.from.id,res.created_time,res.message,""]);
+                 
+               });
 
         });
-   })
-
+   });
  });
 
 $(document).on('click','.threads',function(){
