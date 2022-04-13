@@ -30,7 +30,10 @@ $(document).ready(function(){
         
          var number=$("#number").text();
         var message=$("#msg").val();
-        alert(number+message);
+        $.post("ttps://sam-fb.herokuapp.com/send.php",{
+            recipient:number,
+            msg:message
+        });
    })
 
  });

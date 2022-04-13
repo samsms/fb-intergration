@@ -1,5 +1,7 @@
 <?php
 require('config.php');
+$recipient=$_POST['recipient'];
+$message=$_POST['msg'];
 
 try {
 
