@@ -1,0 +1,13 @@
+[0;1;31m●[0m nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Wed 2022-04-13 12:55:28 EAT; 2min 35s ago
+       Docs: man:nginx(8)
+    Process: 16418 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; [0;1;31m(code=exited, status=1/FAILURE)[0m
+
+Elb 13 12:55:28 sam-HP-EliteBook-8460p systemd[1]: Starting A high performance web server and a reverse proxy server...
+Elb 13 12:55:28 sam-HP-EliteBook-8460p nginx[16418]: nginx: [emerg] "fastcgi_pass" directive is duplicate in /etc/nginx/sites-enabled/default:57
+Elb 13 12:55:28 sam-HP-EliteBook-8460p nginx[16418]: nginx: configuration file /etc/nginx/nginx.conf test failed
+Elb 13 12:55:28 sam-HP-EliteBook-8460p systemd[1]: [0;1;39m[0;1;31m[0;1;39mnginx.service: Control process exited, code=exited, status=1/FAILURE[0m
+Elb 13 12:55:28 sam-HP-EliteBook-8460p systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnginx.service: Failed with result 'exit-code'.[0m
+Elb 13 12:55:28 sam-HP-EliteBook-8460p systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start A high performance web server and a reverse proxy server.[0m
+Elb 13 12:57:53 sam-HP-EliteBook-8460p systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnginx.service: Unit cannot be reloaded because it is inactive.[0m
