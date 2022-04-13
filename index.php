@@ -27,8 +27,10 @@ $(document).ready(function(){
 
  
    $("#send_btn").click(function(){
-        alert("hello")
-
+        
+         var number=$("number").html();
+        var message=$("message").val();
+        alert(number+message);
    })
 
  });
@@ -81,6 +83,7 @@ function fetchChats(id){
    
 
 };
+
 function displayChats(id,time,message,url){
 
     if(<?php echo $fb->get("/$page")->getDecodedBody()['id'];?>==id){
@@ -167,7 +170,7 @@ function getConversationId(id,prof_url,name,count){
                             <span class="online_icon"></span>
                         </div>
                         <div class="user_info">
-                            <span id="title">Chat with Khalid</span>
+                            <span id="title">Open Chat</span>
                             <p id="number"></p>
                         </div>
                         <div class="video_cam">
@@ -193,7 +196,7 @@ function getConversationId(id,prof_url,name,count){
                         <div class="input-group-append">
                             <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
                         </div>
-                        <textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                        <textarea name="" class="form-control type_msg" placeholder="Type your message..." id="msg"></textarea>
                         <div class="input-group-append" id="send_btn">
                             <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
                         </div>
