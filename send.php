@@ -9,6 +9,8 @@ $data=[
   "recipient"=> ["id"=> $recipient],
   "message"=> ["text"=>$message]
 ];
+print_r($data);
+die("");
 
 $messages=$fb->post("/$page/messages",$data);
 
