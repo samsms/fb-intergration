@@ -1,5 +1,6 @@
 <?php
 require('config.php');
+header("content-type:application/json");
 $recipient=$_POST['recipient'];
 $message=$_POST['msg'];
 
