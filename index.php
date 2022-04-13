@@ -34,7 +34,7 @@ $(document).ready(function(){
             recipient:number,
             msg:message
         },function(res){
-            
+
         });
    })
 
