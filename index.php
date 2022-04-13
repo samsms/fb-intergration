@@ -54,7 +54,7 @@ response.data.forEach(function(res){
     var senders=res.senders.data[0];
     var name=senders.name;
     var sender_id=senders.id;
-    $("#convs").prepend(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
+    $("#convs").append(getConversationId(thread_id,"https://bootdey.com/img/Content/avatar/avatar1.png",name,count))
 })
 
 //alert(JSON.stringify(response))
@@ -85,7 +85,7 @@ function fetchChats(id){
         }
      response.messages.data.forEach(function(res){
        
-        $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
+        $("#chats").prepend(displayChats(res.from.id,res.created_time,res.message,""));
         // chats.push([res.from.id,res.created_time,res.message,""]);
      
    });
@@ -218,6 +218,5 @@ function getConversationId(id,prof_url,name,count){
         </div>
     </div>
 </div>
-
 </body>
 </html>
