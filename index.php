@@ -28,8 +28,8 @@ $(document).ready(function(){
  
    $("#send_btn").click(function(){
         
-         var number=$("number").html();
-        var message=$("message").val();
+         var number=$("#number").text();
+        var message=$("#message").val();
         alert(number+message);
    })
 
