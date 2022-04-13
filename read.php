@@ -8,7 +8,7 @@ if(!isset($_GET['thread_id'])){
 }
 try {
  $id= $_GET['thread_id'];
-$messages=$fb->get("$id?fields=messages{message,created_time,from}");
+$messages=$fb->get("$id?fields=messages{message,created_time,from,to}");
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
