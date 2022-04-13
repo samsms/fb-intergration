@@ -9,11 +9,11 @@ $messages=$fb->get("$id?fields=messages{message,created_time,from,to}");
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
     echo json_encode("error");
-  exit;
+ 
 } catch(Facebook\Exceptions\FacebookSDKException $e) {
   // When validation fails or other local issues
     echo json_encode("error");
-  exit;
+
 }
 
 try {
