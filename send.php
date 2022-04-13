@@ -10,7 +10,7 @@ $data=[
   "message"=> ["text"=>$message]
 ];
 
-die(json_encode($data));
+//die(json_encode($data));
 
 $messages=$fb->post("/$page/messages",$data);
 

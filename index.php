@@ -33,6 +33,8 @@ $(document).ready(function(){
         $.post("https://sam-fb.herokuapp.com/send.php",{
             recipient:number,
             msg:message
+        },function(res){
+            
         });
    })
 
