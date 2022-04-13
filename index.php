@@ -77,6 +77,8 @@ function fetchChats(id){
             var name=response.messages.data[0].from.name;
             $("#title").html("Chat with "+name);
             $("#number").html(from);
+        }else{
+            
         }
         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
         // chats.push([res.from.id,res.created_time,res.message,""]);
