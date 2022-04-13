@@ -65,10 +65,10 @@ function fetchChats(id){
   $.get("/read.php?thread_id="+id,function(response){
     var i=0;
     $("#chats").html("");
-    var from=response.messages.data[0].from[0].id;
-    var name=response.messages.data[0].from[0].name;
-    $("#title").html("Chat with "+name);
-    $("#number").html(from);
+    //var from=response.messages.data[0].from[0].id;
+    //var name=response.messages.data[0].from[0].name;
+    //$("#title").html("Chat with "+name);
+    //$("#number").html(from);
      response.messages.data.forEach(function(res){
         
         $("#chats").append(displayChats(res.from.id,res.created_time,res.message,""));
