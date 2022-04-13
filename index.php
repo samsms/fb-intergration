@@ -33,7 +33,7 @@ $(document).ready(function(){
         $.post("https://sam-fb.herokuapp.com/send.php?thread_id="+window.id,{
             recipient:number,
             msg:message
-        },function(res){
+        },function(response){
             //fetchChats(window.id);
                             var i=0;
                 $("#chats").html("");
